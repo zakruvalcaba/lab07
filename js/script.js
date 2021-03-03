@@ -1,40 +1,36 @@
-/*eslint-env browser*/
-
 function displayTitle() {
-    "use strict";
-    window.alert("Welcome to the Guess the Number Game!");
+    alert('Welcome to the Guess the Number Game.');
 }
 
 function playGame() {
-    "use strict";
-    var number, count, guess;
-    number = Math.floor(Math.random() * 10 + 1);
-    window.alert("I\'m guessing a number between 1 and 10");
-    count = 1;
+    let number = Math.floor(Math.random() * 10 + 1);
+    let count = 1;
+    let guess;
+
+    alert('I\'m guessing a number between 1 and 10');
+
     while (true) {
-        guess = Number(window.prompt("Enter your guess:"));
-        if (number < guess) {
-            window.alert("Too high!");
-            count += 1;
-        } else if (number > guess) {
-            window.alert("Too low!");
-            count += 1;
+        guess = Number(prompt('Enter your guess'));
+        if (number > guess) {
+            alert('Too low!');
+            count++;
+        } else if (number < guess) {
+            alert('Too high!');
+            count++;
         } else if (number === guess) {
-            window.alert("You guessed it in " + String(count) + " tries!");
+            alert(`You guessed it! It took you ${count} tries.`);
             return;
         }
     }
 }
 
 function main() {
-    "use strict";
     displayTitle();
-    var playAgain = "y";
-    while (playAgain === "y") {
+    let playAgain = 'y';
+    while (playAgain === 'y') {
         playGame();
-        playAgain = window.prompt("Do you want to play the game again? (y/n)");
+        playAgain = prompt('Do you want to play again? (y or n)');
     }
-    window.alert("Thanks for playing the game!");
+    alert('Thanks for playing the game!');
 }
-
 main();
